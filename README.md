@@ -14,8 +14,8 @@ All editable files are located in the www/app folder and are organised using a m
 * `npm install -g ionic cordova` (Install pre-requisites)
 * `npm update` (Download all node packages)
 * `bower install` (Download all bower packages)
-* `cordova restore plugins` (Download all cordova plugins)
-* `cordova platform add PLATFORM_NAME` (Add device platform)
+* `cordova prepare` (Download all cordova plugins in config)
+* `cordova platform add PLATFORM_NAME --save` (Add device platform and save to config)
 * `gulp config --appId="com.new.id"` (Set reverse domain style id)
 * `gulp config --appName="newApp"` (Set app display name)
   
