@@ -6,7 +6,7 @@ var jshint = require('jshint').JSHINT;
 var async = require('async');
 
 var foldersToProcess = [
-		'js'
+		'app'
 ];
 
 foldersToProcess.forEach(function(folder) {
