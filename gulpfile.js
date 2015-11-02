@@ -82,3 +82,9 @@ gulp.task('useref', function (done) {
     .pipe(gulp.dest('./www/dist'))
     .on('end', done);
 });
+
+/* Allows you to bump version numbers in-sync (see readme) */
+gulp.task('bump', require('gulp-cordova-bump'));
+
+/* Allows you to configure the app ID and app Name (see readme) */
+gulp.task('config', require('gulp-cordova-config'));
