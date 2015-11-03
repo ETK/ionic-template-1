@@ -34,11 +34,12 @@ switch (platform) {
     case 'android':
         platformPath = path.join(platformPath, platform, 'assets', 'www');
         break;
-    case 'ios':
+   case 'ios':
+   case 'wp8':
         platformPath = path.join(platformPath, platform, 'www');
         break;
     default:
-        console.log('this hook only supports android and ios currently');
+        console.log('this hook currently does not supports '+platform+' platform');
         return;
 }
 

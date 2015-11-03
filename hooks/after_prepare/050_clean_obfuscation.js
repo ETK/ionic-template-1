@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * After prepare, files are copied to the platforms/ios and platforms/android folders.
+ * After prepare, files are copied to the platforms/[platform] folder.
  * Lets clean up some of those files that arent needed with this hook.
  */
 var fs = require('fs');
 var path = require('path');
+
+var rootdir = process.argv[2];
 
 var deleteFolderRecursive = function(removePath) {
   if( fs.existsSync(removePath) ) {
@@ -21,9 +23,33 @@ var deleteFolderRecursive = function(removePath) {
   }
 };
 
-var iosPlatformsDir_dist = path.resolve(__dirname, '../../platforms/ios/www/dist');
-var androidPlatformsDir_dist = path.resolve(__dirname, '../../platforms/android/assets/www/dist');
+if (rootdir) {
 
+  // go through each of the platform directories that have been prepared
+  var platforms = (process.env.CORDOVA_PLATFORMS ? process.env.CORDOVA_PLATFORMS.split(',') : []);
 
-deleteFolderRecursive(iosPlatformsDir_dist);
-deleteFolderRecursive(androidPlatformsDir_dist);
+  for (var x=0; x<platforms.length; x++) {
+    // open up the index.html file at the www root
+    try {
+      var platform = platforms[x].trim().toLowerCase();
+      var wwwPath;
+
+      if (platform == 'android') {
+        wwwPath = path.join('platforms', platform, 'assets', 'www');
+      } else {
+        wwwPath = path.join('platforms', platform, 'www');
+      }
+
+      var distPath = path.join(wwwPath, 'dist');
+
+      if (fs.existsSync(distPath)) {
+        process.stdout.write('removing dist folder: ' + distPath + '\n');
+        deleteFolderRecursive(distPath);
+      }
+
+    } catch(e) {
+      process.stdout.write(e);
+    }
+  }
+
+}
