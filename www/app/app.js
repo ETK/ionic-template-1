@@ -13,6 +13,9 @@
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
+            if (navigator.splashscreen) {
+                navigator.splashscreen.hide();
+            }
         });
     }])
 
