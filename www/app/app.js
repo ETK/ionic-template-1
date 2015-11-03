@@ -12,7 +12,7 @@
             }
             if (window.StatusBar) {
                 StatusBar.styleDefault();
-            }   
+            }
         });
     }])
 
