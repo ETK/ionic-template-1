@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.elixel.template" version="0.0.1">
-    <name/>
+    <name>
+        Ionic Template
+    </name>
     <description>
     </description>
     <author email="contact@elixel.co.uk" href="http://www.elixel.co.uk">
