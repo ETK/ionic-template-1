@@ -1,4 +1,4 @@
-(function (angular, cordova, StatusBar) {
+(function (angular, cordova) {
     'use strict';
 
     angular.module('app', ['ionic','templates'])
@@ -11,7 +11,7 @@
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             }
             if (window.StatusBar) {
-                StatusBar.styleDefault();
+                window.StatusBar.styleDefault();
             }
             if (navigator.splashscreen) {
                 navigator.splashscreen.hide();
@@ -21,8 +21,13 @@
 
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $stateProvider
-        .state('home', {
+        .state('loader', {
             url: '/',
+            templateUrl: 'loader/loader.html',
+            controller: 'LoaderCtrl'
+        })
+        .state('home', {
+            url: '/home',
             templateUrl: 'home/home.html',
             controller: 'HomeCtrl'
         });
@@ -30,4 +35,4 @@
         $urlRouterProvider.otherwise('/');
     }]);
 
-})(window.angular, window.cordova, window.StatusBar);
+})(window.angular, window.cordova);
