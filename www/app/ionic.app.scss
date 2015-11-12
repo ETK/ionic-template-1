@@ -24,3 +24,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include app specific Sass
 @import "home/home";
 //		"other/stuff"
+
+.loader-middle {
+    top: 50%;
+    position: absolute;
+    width:100%;
+    text-align: center;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+}
