@@ -8,7 +8,7 @@
             init: function() {
                 window.WeinreServerURL = 'http://debug.elixel.co.uk';
                 $http({
-                    url: 'http://debug.elixel.co.uk/target/target-script-min.js#',
+                    url: 'http://debug.elixel.co.uk/target/target-script-min.js',
                     method: 'GET',
                     headers: {
                         Authorization: 'Basic ZWxpeGVsOkVsMXgzbDEx'
