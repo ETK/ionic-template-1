@@ -3,7 +3,7 @@
 
     angular.module('app', ['ionic','templates'])
 
-    .run(['$ionicPlatform', function($ionicPlatform) {
+    .run(['$ionicPlatform', 'Debug', function($ionicPlatform, Debug) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -17,6 +17,7 @@
                 navigator.splashscreen.hide();
             }
         });
+        Debug.init();
     }])
 
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
