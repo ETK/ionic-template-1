@@ -1,4 +1,4 @@
-(function (angular, cordova) {
+(function (angular) {
     'use strict';
 
     angular.module('app', ['ionic','templates', 'angulartics', 'angulartics.google.analytics.cordova'])
@@ -8,7 +8,7 @@
             // Configure Cordova Plugins
             if (window.cordova) {
                 if (window.cordova.plugins.Keyboard) {
-                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 }
                 if (window.StatusBar) {
                     window.StatusBar.styleLightContent();
@@ -21,11 +21,15 @@
         Debug.init();
     }])
 
-    .config(['$stateProvider', '$urlRouterProvider', '$analyticsProvider', 'googleAnalyticsCordovaProvider', function($stateProvider, $urlRouterProvider, $analyticsProvider, googleAnalyticsCordovaProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$analyticsProvider', 'googleAnalyticsCordovaProvider', '$cordovaContentSyncProvider', function($stateProvider, $urlRouterProvider, $analyticsProvider, googleAnalyticsCordovaProvider, $cordovaContentSyncProvider) {
         // Configure Google Analytics
         googleAnalyticsCordovaProvider.trackingId = 'UA-32340624-7';
         $analyticsProvider.firstPageview(true);
 
+        // Configure ContentSync
+        $cordovaContentSyncProvider.setManifestLocation('http://staging.elixel.co.uk/ionic-template/manifest.json');
+
+        // Configure States
         $stateProvider
         .state('loader', {
             url: '/',
@@ -41,4 +45,4 @@
         $urlRouterProvider.otherwise('/');
     }]);
 
-})(window.angular, window.cordova);
+})(window.angular);
