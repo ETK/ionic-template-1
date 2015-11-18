@@ -7,23 +7,31 @@ var useref = require('gulp-useref');
 var jshint = require('gulp-jshint');
 var packageJSON  = require('./package');
 var jscs = require('gulp-jscs');
+var runSequence = require('run-sequence');
 
 var paths = {
-    app_js: ['./www/app/**/*.js'],
     sass: ['./www/app/**/*.scss'],
+    app_js: ['./www/app/**/*.js'],
     templatecache: ['./www/app/**/*.html'],
-    useref: ['./www/*.html']
+    jshtml: ['./www/app/**/*.js', './www/app/**/*.html'],
 };
 
-gulp.task('default', ['lint','jscs','sass','templatecache','ng_annotate','useref']);
+gulp.task('default', function(done) {
+    runSequence('lint','jscs','sass','templatecache','ng_annotate','useref', function() {
+        done();
+    });
+});
+
+/* Process all HTML templates and compile JS in specific order */
+gulp.task('jshtml', function() {
+    return runSequence('lint','jscs','templatecache','ng_annotate','useref');
+});
 
 gulp.task('watch', function() {
+    /* When sass changes, process it */
     gulp.watch(paths.sass, ['sass']);
-    gulp.watch(paths.templatecache, ['templatecache']);
-    gulp.watch(paths.app_js, ['ng_annotate']);
-    gulp.watch(paths.app_js, ['lint']);
-    gulp.watch(paths.app_js, ['jscs']);
-    gulp.watch(paths.useref, ['useref']);
+    /* When a template or js changes, process it */
+    gulp.watch(paths.jshtml, ['jshtml']);
 });
 
 /* Check JS for unused variables, errors etc */

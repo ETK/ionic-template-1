@@ -2,11 +2,7 @@
   "name": "Template",
   "app_id": "",
   "gulpStartupTasks": [
-    "sass",
-    "templatecache",
-    "ng_annotate",
-    "useref",
-    "lint",
+    "default",
     "watch"
   ]
 }
