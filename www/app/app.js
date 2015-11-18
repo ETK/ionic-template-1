@@ -1,26 +1,31 @@
 (function (angular, cordova) {
     'use strict';
 
-    angular.module('app', ['ionic','templates'])
+    angular.module('app', ['ionic','templates', 'angulartics', 'angulartics.google.analytics.cordova'])
 
     .run(['$ionicPlatform', 'Debug', function($ionicPlatform, Debug) {
         $ionicPlatform.ready(function() {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            }
-            if (window.StatusBar) {
-                window.StatusBar.styleLightContent();
-            }
-            if (navigator.splashscreen) {
-                navigator.splashscreen.hide();
+            // Configure Cordova Plugins
+            if (window.cordova) {
+                if (window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                }
+                if (window.StatusBar) {
+                    window.StatusBar.styleLightContent();
+                }
+                if (navigator.splashscreen) {
+                    navigator.splashscreen.hide();
+                }
             }
         });
         Debug.init();
     }])
 
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$analyticsProvider', 'googleAnalyticsCordovaProvider', function($stateProvider, $urlRouterProvider, $analyticsProvider, googleAnalyticsCordovaProvider) {
+        // Configure Google Analytics
+        googleAnalyticsCordovaProvider.trackingId = 'UA-32340624-7';
+        $analyticsProvider.firstPageview(true);
+
         $stateProvider
         .state('loader', {
             url: '/',
