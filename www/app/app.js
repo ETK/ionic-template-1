@@ -11,7 +11,7 @@
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             }
             if (window.StatusBar) {
-                window.StatusBar.styleDefault();
+                window.StatusBar.styleLightContent();
             }
             if (navigator.splashscreen) {
                 navigator.splashscreen.hide();
