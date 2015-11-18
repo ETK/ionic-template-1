@@ -3,9 +3,9 @@
 
     angular.module('app')
 
-    .controller('LoaderCtrl', ['CordovaContentSync', '$ionicPlatform', '$state', '$ionicHistory', function (CordovaContentSync, $ionicPlatform, $state, $ionicHistory) {
+    .controller('LoaderCtrl', ['$cordovaContentSync', '$ionicPlatform', '$state', '$ionicHistory', function ($cordovaContentSync, $ionicPlatform, $state, $ionicHistory) {
         $ionicPlatform.ready(function() {
-            CordovaContentSync.sync()
+            $cordovaContentSync.sync()
             .then(function(syncSuccess) {
                 // Update was successful!
                 console.log('ContentSync successful', syncSuccess);
