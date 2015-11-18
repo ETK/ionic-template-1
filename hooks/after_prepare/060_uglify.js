@@ -70,8 +70,16 @@ function compress(file) {
             console.log('uglifying js file ' + file);
             var res = ngAnnotate(String(fs.readFileSync(file)), { add: true });
             var result = UglifyJS.minify(res.src, {
-                compress: { // pass false here if you only want to minify (no obfuscate)
-                    drop_console: true // remove console.* statements (log, warn, etc.)
+                mangle: true,
+                compress: {
+                    sequences: true,
+                    dead_code: true,
+                    conditionals: true,
+                    booleans: true,
+                    unused: true,
+                    if_return: true,
+                    join_vars: true,
+                    drop_console: true
                 },
                 fromString: true
             });
