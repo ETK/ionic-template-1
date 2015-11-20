@@ -5,12 +5,26 @@
 node_modules/
 npm-debug.log
 
-# Cordova
-platforms/
-plugins/
-
 # Bower
 www/lib
+
+# Cordova
+platforms/android/*
+!platforms/android/build-extras.gradle
+!platforms/android/src/
+platforms/android/src/*
+!platforms/android/src/alpha
+!platforms/android/src/beta
+
+platforms/ios/www
+platforms/ios/platform_www
+platforms/ios/*/*
+!platforms/ios/*/Images.xcassets
+!platforms/ios/*/*.plist
+platforms/ios/cordova
+platforms/ios/CordovaLib
+*.xcodeproj
+plugins/
 
 # App
 www/dist
