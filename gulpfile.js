@@ -22,6 +22,8 @@ gulp.task('default', function(done) {
     });
 });
 
+gulp.task('test', ['lint', 'jscs']);
+
 /* Process all HTML templates and compile JS in specific order */
 gulp.task('jshtml', function() {
     return runSequence('lint','jscs','templatecache','ng_annotate','useref');
