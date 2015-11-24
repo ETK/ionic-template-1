@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CookieCookson/ionic-template.svg)](https://travis-ci.org/CookieCookson/ionic-template)
+
 # Ionic Template
 Starting block for creating production-ready Ionic Apps. This template comes with pre-made build routines:
 * SASS
