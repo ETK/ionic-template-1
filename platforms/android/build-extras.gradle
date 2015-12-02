@@ -1,0 +1,30 @@
+android {
+    productFlavors {
+        alpha {
+            applicationId "com.elixel.template.alpha"
+        }
+        beta {
+            applicationId "com.elixel.template.beta"
+        }
+        appstore {
+            applicationId "com.elixel.template"
+        }
+    }
+}
+
+android.variantFilter { variant ->
+  def flavor = variant.flavors.get(0).name
+  if (project.hasProperty("activeFlavor")) {
+    if (flavor != project.getProperty("activeFlavor")) {
+      variant.setIgnore(true)
+    }
+  }
+  else {
+    if (flavor != "alpha") {
+      variant.setIgnore(true)
+    }
+  }
+}
+
+// This does not work alongside Crosswalk's multiple Apk mode currently
+cdvBuildMultipleApks=false

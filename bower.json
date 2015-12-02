@@ -1,8 +1,9 @@
 {
-    "name": "app",
-    "private": true,
-    "version": "0.0.1",
-    "dependencies": {
-        "ionic": "driftyco/ionic-bower#1.1.0"
-    }
+  "name": "app",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.0",
+    "angulartics": "~0.20.2"
+  }
 }
