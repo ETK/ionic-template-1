@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('app', ['ionic','templates', 'angulartics', 'angulartics.google.analytics.cordova'])
+    angular.module('app', ['ionic', 'ionic.ion.imageCacheFactory', 'templates', 'angulartics', 'angulartics.google.analytics.cordova'])
 
     .run(['$ionicPlatform', function($ionicPlatform) {
         $ionicPlatform.ready(function() {
