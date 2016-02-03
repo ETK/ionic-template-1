@@ -3,7 +3,7 @@
 
     angular.module('app', ['ionic','templates', 'angulartics', 'angulartics.google.analytics.cordova'])
 
-    .run(['$ionicPlatform', 'Debug', function($ionicPlatform, Debug) {
+    .run(['$ionicPlatform', function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             // Configure Cordova Plugins
             if (window.cordova) {
