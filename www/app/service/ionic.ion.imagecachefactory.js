@@ -13,18 +13,16 @@
                 for (var i = 0; i < urls.length; i++) {
                     var deferred = $q.defer();
                     var img = new Image();
-                    /* jshint ignore:start */
                     img.onload = (function(deferred) {
                         return function() {
                             deferred.resolve();
                         };
-                    })(deferred);
+                    })(deferred); // jshint ignore:line
                     img.onerror = (function(deferred, url) {
                         return function() {
                             deferred.reject(url);
                         };
-                    })(deferred,urls[i]);
-                    /* jshint ignore:end */
+                    })(deferred,urls[i]); // jshint ignore:line
                     promises.push(deferred.promise);
                     img.src = urls[i];
                 }

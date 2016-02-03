@@ -6,6 +6,7 @@ Starting block for creating production-ready Ionic Apps. This template comes wit
 * JSCS
 * JSHint
 * Template Caching
+* Image Caching
 * Dependency Injection
 * JS/CSS concatenation
 * Minification/Obfuscation Hooks
