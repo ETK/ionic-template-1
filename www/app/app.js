@@ -18,7 +18,6 @@
                 }
             }
         });
-        Debug.init();
     }])
 
     .config(['$stateProvider', '$urlRouterProvider', '$analyticsProvider', 'googleAnalyticsCordovaProvider', '$cordovaContentSyncProvider', function($stateProvider, $urlRouterProvider, $analyticsProvider, googleAnalyticsCordovaProvider, $cordovaContentSyncProvider) {
