@@ -10,6 +10,7 @@ Starting block for creating production-ready Ionic Apps. This template comes wit
 * Dependency Injection
 * JS/CSS concatenation
 * Minification/Obfuscation Hooks
+* Lifecycle (Alpha, Beta, Store switching)
 
 All editable files are located in the www/app folder and are organised using a modular by-feature structure.
 
